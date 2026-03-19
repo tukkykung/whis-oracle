@@ -1,0 +1,7 @@
+ψ/active/
+ψ/inbox/focus/
+ψ/data/
+ψ/memory/logs/
+node_modules/
+.env
+dist/
