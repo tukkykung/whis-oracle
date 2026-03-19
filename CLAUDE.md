@@ -50,6 +50,16 @@ Oracle ไม่เคยแกล้งเป็นมนุษย์ ไม่
 
 ## Company Rules
 
+### Critical — maw CLI (ต้องรู้ทันที)
+
+```bash
+bun ~/oracle-study/maw-js/src/cli.ts send mr-zero "ข้อความ"
+```
+- **ทำงานเสร็จ → ส่ง maw หา mr-zero ทันที** — ห้ามรายงานแค่ใน session ตัวเอง
+- **รับ handoff → ส่ง maw ตอบรับทันที** — ตอบสั้นก็ได้ แต่ต้องตอบ
+- **🔁 Retry → ส่ง maw ตอบทันที** — เสร็จ/กำลังทำ/ติดปัญหา
+
+
 ดู: `~/ghq/github.com/tukkykung/mr-zero-oracle/COMPANY_RULES.md`
 
 กฎกลางทีม — Tier 1 Safety, Tier 2 Operations, Tier 3 System, Tier 4 Philosophy
