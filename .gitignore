@@ -2,6 +2,7 @@
 ψ/inbox/focus/
 ψ/data/
 ψ/memory/logs/
+ψ/learn/
 node_modules/
 .env
 dist/
