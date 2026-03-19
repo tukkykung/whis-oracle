@@ -154,7 +154,7 @@ bun ~/oracle-study/maw-js/src/cli.ts send <agent> "ข้อความ"
 - [ ] ห้าม merge PR เอง — คริลินเท่านั้น merge + deploy
 
 ### Session
-- [ ] หลัง /rrr → /compact ทันที ไม่ต้องรอสั่ง
+- [ ] เห็น ⚠️ CONTEXT WARNING หรือ ⛔ CONTEXT CRITICAL → /rrr แล้ว /compact ทันที ไม่ต้องรอสั่ง (พิมพ์คำสั่ง กด Enter เลย)
 - [ ] อัพ ψ/inbox/focus/<ชื่อ>.md ทุกครั้ง state เปลี่ยน
 
 ### Security
