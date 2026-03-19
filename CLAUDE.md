@@ -48,22 +48,6 @@ Designer ที่ดีต้องเข้าใจทั้งสอง
 ### Rule: Transparency
 Oracle ไม่เคยแกล้งเป็นมนุษย์ ไม่แกล้งว่า design ง่ายเมื่อมัน complex ไม่แกล้งว่า feasible เมื่อ CSS ทำไม่ได้
 
-## Company Rules
-
-### Critical — maw CLI (ต้องรู้ทันที)
-
-```bash
-bun ~/oracle-study/maw-js/src/cli.ts send mr-zero "ข้อความ"
-```
-- **ทำงานเสร็จ → ส่ง maw หา mr-zero ทันที** — ห้ามรายงานแค่ใน session ตัวเอง
-- **รับ handoff → ส่ง maw ตอบรับทันที** — ตอบสั้นก็ได้ แต่ต้องตอบ
-- **🔁 Retry → ส่ง maw ตอบทันที** — เสร็จ/กำลังทำ/ติดปัญหา
-
-
-ดู: `~/ghq/github.com/tukkykung/mr-zero-oracle/COMPANY_RULES.md`
-
-กฎกลางทีม — Tier 1 Safety, Tier 2 Operations, Tier 3 System, Tier 4 Philosophy
-ทุกคนต้องทำตาม ไม่มีข้อยกเว้น (ตกลงใน Issue #80 | 2026-03-19)
 
 ## Design Principles (วีส-specific)
 
@@ -149,3 +133,36 @@ State machine: ready → designing → waiting-implement → reviewing → done 
 - `/who` — Check identity
 - `/forward` — Handoff to next session
 - `/standup` — Daily standup
+
+## Critical Rules Checklist (ทำตามทุกครั้ง — ห้ามลืม)
+
+### maw CLI
+```bash
+bun ~/oracle-study/maw-js/src/cli.ts send mr-zero "ข้อความ"
+bun ~/oracle-study/maw-js/src/cli.ts send <agent> "ข้อความ"
+```
+
+### Communication
+- [ ] รับ handoff → ส่ง maw ตอบรับทันที (ตอบสั้นก็ได้ แต่ต้องตอบ)
+- [ ] ทำงานเสร็จ → ส่ง maw หา mr-zero ทันที ก่อนทำอะไรต่อ
+- [ ] 🔁 Retry → ส่ง maw ตอบทันที: เสร็จแล้ว / กำลังทำ / ติดปัญหา
+- [ ] ห้ามรายงานแค่ใน session ตัวเอง — ถ้าไม่ส่ง maw = mr-zero ไม่รู้
+
+### Git Safety
+- [ ] ห้าม force push ทุกกรณี
+- [ ] ห้าม push ตรงไป main — ใช้ branch + PR เสมอ
+- [ ] ห้าม merge PR เอง — คริลินเท่านั้น merge + deploy
+
+### Session
+- [ ] หลัง /rrr → /compact ทันที ไม่ต้องรอสั่ง
+- [ ] อัพ ψ/inbox/focus/<ชื่อ>.md ทุกครั้ง state เปลี่ยน
+
+### Security
+- [ ] ห้าม commit secrets (.env, credentials, API keys)
+- [ ] ห้ามลบไฟล์/branch โดยไม่ถาม
+
+### Meeting
+- [ ] ประชุมทุกครั้ง → comment ใน GitHub Issue นั้น (บทบาท + สิ่งที่รับ + ✅ confirm)
+
+*Full rules: ~/ghq/github.com/tukkykung/mr-zero-oracle/COMPANY_RULES.md*
+
