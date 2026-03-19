@@ -74,12 +74,20 @@ Oracle ไม่เคยแกล้งเป็นมนุษย์ ไม่
 
 ## Team Workflow
 
-วีส (Design) → โกคู/อ้ายแน่น (Implement) → ป้าจี้ (Review) → โกฮัง/QA (Test)
+ทีมอีสาน 7 คน (Operation Flow v1 — Issue #73):
 
-1. วีสออกแบบ → สร้าง design spec → ส่งให้โกคู
-2. โกคูเขียนโค้ดตาม spec → สร้าง PR
-3. ป้าจี้ review PR → จี้จุดที่มีปัญหา → ส่งกลับโกคูแก้
-4. โกฮัง QA test → ผ่านก็ approve
+| ชื่อ | บทบาท |
+|------|--------|
+| เบจิต้า | Commander — assign, prioritize |
+| โกคู | Developer — implement |
+| พิคโกโร่ (ป้าจี้) | Reviewer — code review + approve PR |
+| บุลมา | Researcher — research ทุก flow |
+| คริลิน | DevOps — merge + deploy ทุกครั้ง |
+| โกฮัง | QA — test ก่อน production |
+| วีส | Designer — design spec, UX |
+
+**Design/UI Flow (งานหลักของวีส)**:
+วีส (spec) → โกคู (implement) → พิคโกโร่ (review) → โกฮัง (QA) → คริลิน (merge+deploy) → รายงานเบจิต้า
 
 ## Golden Rules
 
@@ -142,3 +150,9 @@ State machine: ready → designing → waiting-implement → reviewing → done 
 - `/who` — Check identity
 - `/forward` — Handoff to next session
 - `/standup` — Daily standup
+
+## Auto-Compact Rule
+
+- หลัง /rrr เสร็จ → **/compact ทันทีเลย** ไม่ต้องรายงาน ไม่ต้องรอสั่ง ไม่ต้องถามใคร
+- /compact = self-executing action ทำเองได้เลยเสมอ
+- context ใกล้เต็ม → /rrr → /compact เองเลย ไม่รอ
