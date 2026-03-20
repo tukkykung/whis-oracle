@@ -115,7 +115,7 @@ State machine: ready → designing → waiting-implement → reviewing → done 
 
 ## Token Management
 
-- Session ≤ 4 ชม. → /rrr + /clear
+- Session ≤ 4 ชม. → แจ้ง human สั่ง `/rrr` + `/clear` ห้ามทำเอง
 - /compact ก่อนถึง 200K tokens
 - Sonnet default — Opus เฉพาะ design ซับซ้อน
 - grep ก่อน read ทุกครั้ง
@@ -131,7 +131,6 @@ State machine: ready → designing → waiting-implement → reviewing → done 
 - `/learn` — Study a codebase
 - `/philosophy` — Review principles
 - `/who` — Check identity
-- `/forward` — Handoff to next session
 - `/standup` — Daily standup
 
 ## Critical Rules Checklist (ทำตามทุกครั้ง — ห้ามลืม)
@@ -143,7 +142,6 @@ bun ~/oracle-study/maw-js/src/cli.ts send <agent> "ข้อความ"
 ```
 
 ### Communication
-- [ ] รับ handoff → ส่ง maw ตอบรับทันที (ตอบสั้นก็ได้ แต่ต้องตอบ)
 - [ ] ทำงานเสร็จ → ส่ง maw หา mr-zero ทันที ก่อนทำอะไรต่อ
 - [ ] 🔁 Retry → ส่ง maw ตอบทันที: เสร็จแล้ว / กำลังทำ / ติดปัญหา
 - [ ] ห้ามรายงานแค่ใน session ตัวเอง — ถ้าไม่ส่ง maw = mr-zero ไม่รู้
@@ -154,7 +152,7 @@ bun ~/oracle-study/maw-js/src/cli.ts send <agent> "ข้อความ"
 - [ ] ห้าม merge PR เอง — คริลินเท่านั้น merge + deploy
 
 ### Session
-- [ ] เห็น ⚠️ CONTEXT WARNING หรือ ⛔ CONTEXT CRITICAL → `/rrr` ก่อน แล้วแจ้ง human รอสั่ง compact
+- [ ] เห็น ⚠️ CONTEXT WARNING หรือ ⛔ CONTEXT CRITICAL → แจ้ง human ทันที ห้ามทำ `/rrr` เอง รอ human สั่ง
 - [ ] อัพ ψ/inbox/focus/<ชื่อ>.md ทุกครั้ง state เปลี่ยน
 
 ### Security
@@ -185,21 +183,22 @@ gh issue list --repo tukkykung/mr-zero-oracle --assignee "@me" --state open
 
 ## Operation Protocol (2026-03-20)
 
+### 🔴 Priority: รายงาน Commander
+ทุกครั้งที่งานเสร็จ → maw เบจิต้า(Commander) ทันที
+ห้ามเงียบ — ถ้าไม่รายงาน flow หยุด
+
 ### 🔴 Blocker Protocol
 เมื่อติด blocker:
 1. comment ใน Issue ทันที: 🚧 BLOCKED: [สาเหตุ]
 2. maw เบจิต้า ทันที — ไม่รอ blocker = urgent โดย default
 3. ถ้า maw ไม่ตอบ 5 นาที → tmux direct
 
-### ✅ Handoff ACK
-รับงานแล้วต้อง ACK ภายใน 5 นาที (maw หรือ comment Issue)
-ถ้าไม่มี ACK = sender escalate เบจิต้า ทันที
 
 ### 🔀 LGTM = Merge
 ป้าจี้ comment 'LGTM ✅' = คริลิน merge ได้เลย ไม่ต้องรอ formal approve
 
 ### 📋 QA Entry
-QA เริ่มได้เมื่อ: ป้าจี้ LGTM แล้ว + มี maw handoff มาถึงโกฮัง
+QA เริ่มได้เมื่อ: ป้าจี้ LGTM แล้ว
 
 ### 🔁 Retry
 Retry = reminder เท่านั้น ไม่ต้อง interrupt ถ้าทำงานอยู่แล้ว
