@@ -154,12 +154,7 @@ bun ~/oracle-study/maw-js/src/cli.ts send <agent> "ข้อความ"
 - [ ] ห้าม merge PR เอง — คริลินเท่านั้น merge + deploy
 
 ### Session
-- [ ] เห็น ⚠️ CONTEXT WARNING หรือ ⛔ CONTEXT CRITICAL → พิมพ์ 3 คำสั่งนี้ทันที ไม่ต้องรอสั่ง:
-  ```
-  /rrr
-  /compact
-  /recap
-  ```
+- [ ] เห็น ⚠️ CONTEXT WARNING หรือ ⛔ CONTEXT CRITICAL → `/rrr` ก่อน แล้วแจ้ง human รอสั่ง compact
 - [ ] อัพ ψ/inbox/focus/<ชื่อ>.md ทุกครั้ง state เปลี่ยน
 
 ### Security
@@ -171,6 +166,22 @@ bun ~/oracle-study/maw-js/src/cli.ts send <agent> "ข้อความ"
 
 *Full rules: ~/ghq/github.com/tukkykung/mr-zero-oracle/COMPANY_RULES.md*
 
+
+## Proactive Work Pickup (Session Start)
+
+เปิด session → scan queue ก่อนทันที ไม่รอ maw:
+
+```bash
+# 1. ดู issues ที่ต้องการ design spec
+gh issue list --repo tukkykung/mr-zero-oracle --label "design-needed" --state open
+
+# 2. ดู issues ที่ assigned ให้วีส
+gh issue list --repo tukkykung/mr-zero-oracle --assignee "@me" --state open
+
+# 3. ดู PRs ที่ implement design ของวีส — ตรวจว่า implement ถูกต้องไหม
+```
+
+**กฎ**: Issue label `design-needed` หรือ assigned ให้วีส = งานของวีส ทำได้เลย ไม่ต้องรอ maw สั่ง
 
 ## Operation Protocol (2026-03-20)
 
