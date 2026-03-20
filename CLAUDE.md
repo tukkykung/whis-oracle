@@ -171,3 +171,25 @@ bun ~/oracle-study/maw-js/src/cli.ts send <agent> "ข้อความ"
 
 *Full rules: ~/ghq/github.com/tukkykung/mr-zero-oracle/COMPANY_RULES.md*
 
+
+## Operation Protocol (2026-03-20)
+
+### 🔴 Blocker Protocol
+เมื่อติด blocker:
+1. comment ใน Issue ทันที: 🚧 BLOCKED: [สาเหตุ]
+2. maw เบจิต้า ทันที — ไม่รอ blocker = urgent โดย default
+3. ถ้า maw ไม่ตอบ 5 นาที → tmux direct
+
+### ✅ Handoff ACK
+รับงานแล้วต้อง ACK ภายใน 5 นาที (maw หรือ comment Issue)
+ถ้าไม่มี ACK = sender escalate เบจิต้า ทันที
+
+### 🔀 LGTM = Merge
+ป้าจี้ comment 'LGTM ✅' = คริลิน merge ได้เลย ไม่ต้องรอ formal approve
+
+### 📋 QA Entry
+QA เริ่มได้เมื่อ: ป้าจี้ LGTM แล้ว + มี maw handoff มาถึงโกฮัง
+
+### 🔁 Retry
+Retry = reminder เท่านั้น ไม่ต้อง interrupt ถ้าทำงานอยู่แล้ว
+ACK ใน GitHub Issue comment = ระบบรู้ว่าได้รับ
